@@ -1,0 +1,15 @@
+#F6E602
+#D4B402
+#EBB70E
+#D69200 
+#241600 = texto
+
+tipografia 
+fragment_core - texto
+pompiere - titulos  
+
+familia de icones - material-design-light
+
+
+
+api:https://fakestoreapi.com/docs

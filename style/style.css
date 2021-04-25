@@ -1,0 +1,210 @@
+@font-face{
+    font-family: "Fragmentcore";
+    src: url('../font/Fragmentcore.otf') format('truetype');
+}
+@font-face {
+    font-family: 'titulos';
+    src: url('../font/titulos/Pompiere-Regular.ttf') format("truetype");
+}
+body{
+    background-image: url(../imagens/back.svg);
+    background-repeat: repeat;
+}
+
+*{
+    font-family: Fragmentcore;
+    padding: 0%;
+    margin: 0%;
+    box-sizing: border-box;
+   
+}
+img{
+    max-width: 90%;
+   
+    
+}
+li{
+    list-style: none;
+    display: inline;
+}
+ul{
+    list-style: none    ;
+}
+a{
+    text-decoration: none ;
+
+}
+.container{
+    display: grid;
+    grid-template-areas: 
+    "header header header"
+    "search   search    search  " 
+    "content content content"
+    "footer footer footer   "
+    ;
+    grid-template-columns: auto minmax(900px, 580px);
+}
+.header{
+    grid-area: header;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color:#ffd95c00;
+
+}
+#logo{
+    padding: 0px 5px;
+}
+.icons-bar{
+    padding: 5px 5px;
+    margin-left: auto;
+}
+.icons-bar a{
+    padding: 0px 10px;
+}
+[data-icon="mdi-light:cart"]{
+    font-size: 4em;
+    color: black;
+}
+[data-icon="mdi-light:menu"]{
+    font-size: 4em;
+    color: black;
+}
+[data-icon="mdi-light:menu"]:hover ,[data-icon="mdi-light:cart"]:hover{
+    color: rgba(0, 0, 0, 0.233);
+}
+.opcaoMenu{
+    height: 50px;
+    width: 250px;
+    background-color: #00a2ff63;
+    border-radius: 5px;
+    display: none;
+    transition: 0.5s;
+}
+.opcaoMenu ul li a{
+    font-size: 1.8em;
+    font-weight: bold;
+}
+.opcaoMenu ul{
+    text-align: center;
+}
+.showMenu{
+    display: block;
+}
+
+.search{
+    display: flex;
+    grid-area: search;
+    margin:  100px;
+    align-content: center;
+    justify-content: center;
+    
+}
+.search form p {
+    margin: 4% 100px 50px 100px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 1.9em;
+    color: #008cff ;
+}
+
+.search button{
+    padding: 13px 20px 24px 20px;
+    border-radius: 5px;
+    background-color: rgb(251, 172, 0);
+    border: none;
+    outline: none;
+    cursor: pointer;
+    
+
+}
+.search button:hover{
+    color: rgb(255, 230, 0);
+}
+[ data-icon="akar-icons:search"]{
+    font-size: 2em;
+}
+.search input{
+    padding: 20px;
+    width: 500px;
+    font-size: 1em;
+    outline: none;
+}
+.main{
+    display: grid;
+    grid-area: content;
+    background-color: rgba(0, 0, 0, 0);
+    margin: 0px auto;
+    grid-template-columns:  repeat(3 , 350px);
+    grid-gap: 35px;
+}
+
+.tituloProduto{
+    color: rgb(0, 0, 0);
+    padding: 5px;
+    background-color: rgba(255, 4, 255, 0);
+    font-family: Fragmentcore;
+    font-size: 1.4em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.descricao{
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: normal;
+    color: rgb(0, 0, 0);
+    background-color: rgba(255, 196, 0, 0);
+    padding: 5px;
+    font-size: 1.5em;
+    overflow: scroll ;
+    text-overflow: clip;
+    max-height: 150px;
+    border: 1px double rgba(0, 0, 0, 0.267);
+
+}
+.preco{
+    text-align: center;
+    font-weight: bolder;
+    font-size: 1.5em;
+    color: rgb(0, 0, 0);
+    background-color: rgba(255, 255, 255, 0);
+    padding: 5px;
+}
+.btnComprar{
+    background-color: #ffd900;
+    width: 100%;
+    padding: 10px;
+    font-family:  Arial, Helvetica, sans-serif, Times, serif;
+    font-size: 1.5em;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+.imagemProduto{
+    margin: 10px 20px;
+    height: 250px;
+}
+
+.elements{
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.253); 
+    padding: 10px;
+    transition: 0.2s;
+}
+::-webkit-scrollbar {
+    width: 12px;
+}
+ 
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0); 
+    border-radius: 0px;
+}
+ 
+::-webkit-scrollbar-thumb {
+    border-radius: 0px;
+    box-shadow: inset 0 0 6px rgb(0, 0, 0); 
+    
+}
+
+.elements:hover{
+    transform: translate3d(10px, 20px, 50px);
+}
