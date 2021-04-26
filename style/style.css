@@ -20,19 +20,23 @@ body{
 }
 img{
     max-width: 90%;
-   
-    
+
 }
 li{
     list-style: none;
     display: inline;
 }
 ul{
-    list-style: none    ;
+    list-style: none;
 }
 a{
-    text-decoration: none ;
+    text-decoration: none;
 
+}
+.remove{
+    display: none;
+    padding: 0;
+    margin: 0%;
 }
 .container{
     display: grid;
@@ -40,23 +44,26 @@ a{
     "header header header"
     "search   search    search  " 
     "content content content"
+    ".   contentDetail  contentDetail "
     "footer footer footer   "
     ;
     grid-template-columns: auto minmax(900px, 580px);
 }
+/*header*/
 .header{
     grid-area: header;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr auto;
     background-color:#ffd95c00;
-
+    background: linear-gradient(90deg,#ffd000, #ffbb00);
 }
 #logo{
     padding: 0px 5px;
 }
 .icons-bar{
     padding: 5px 5px;
-    margin-left: auto;
+    margin-left: auto;  
+
 }
 .icons-bar a{
     padding: 0px 10px;
@@ -64,21 +71,20 @@ a{
 [data-icon="mdi-light:cart"]{
     font-size: 4em;
     color: black;
+    transition: 0.4s;
 }
-[data-icon="mdi-light:menu"]{
-    font-size: 4em;
-    color: black;
-}
-[data-icon="mdi-light:menu"]:hover ,[data-icon="mdi-light:cart"]:hover{
-    color: rgba(0, 0, 0, 0.233);
+
+[data-icon="mdi-light:cart"]:hover{
+    font-size: 4.8em;
 }
 .opcaoMenu{
     height: 50px;
     width: 250px;
-    background-color: #00a2ff63;
+    background-color: #ffee0032;
     border-radius: 5px;
-    display: none;
-    transition: 0.5s;
+    display: block;
+    grid-column: 1;
+    transition: 0.4s;
 }
 .opcaoMenu ul li a{
     font-size: 1.8em;
@@ -87,10 +93,14 @@ a{
 .opcaoMenu ul{
     text-align: center;
 }
-.showMenu{
-    display: block;
+.opcaoMenu:hover{
+    background-color: #ffee00a8;
+    width: 300px;
+    height: 60px;
 }
+/*final header*/
 
+/*search*/
 .search{
     display: flex;
     grid-area: search;
@@ -129,6 +139,9 @@ a{
     font-size: 1em;
     outline: none;
 }
+/*final search*/
+
+/*produtos em grade*/
 .main{
     display: grid;
     grid-area: content;
@@ -185,10 +198,11 @@ a{
     height: 250px;
 }
 
-.elements{
+.elementsPrincipalMain{
     box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.253); 
     padding: 10px;
     transition: 0.2s;
+    cursor: pointer;
 }
 ::-webkit-scrollbar {
     width: 12px;
@@ -205,6 +219,95 @@ a{
     
 }
 
-.elements:hover{
+.elementsPrincipalMain:hover{
     transform: translate3d(10px, 20px, 50px);
 }
+/*final produto grade*/
+
+footer{
+    grid-area: footer;
+    width: 100%;
+    height: 100px;
+    background: linear-gradient(90deg, #ffb300, #ffd000 );
+    font-size: 1.5em;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 30px;
+}
+
+/*itens detalhados*/
+.produtoDetail{
+    grid-area: contentDetail;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(500px, 1fr));
+    }
+
+/*final itens detalhados*/
+.imagemProdutoDetail{
+    padding: 20px;
+     box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.287);
+    }
+.tituloDetail{
+    text-align:center ;
+    padding: 10px;
+    font-weight: bold;
+    font-size: 2em;
+
+    }
+.descricaoDetail{
+    font-size: 1.8em;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    padding: 15px;
+    }
+.precoDetail{
+    font-size: 2em;
+    text-align: center;
+    padding: 20px;
+    font-weight: bold;
+    }
+.btnComprarDetail{
+    padding: 20px;
+    width: 90%;
+    margin: 25px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-family:  Arial, Helvetica, sans-serif, Times, serif;
+    font-size: 1.5em;
+    background-color: #ffd900;
+    transition: 0.4s;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.287);
+    }
+.btnComprarDetail:hover{
+    padding: 30px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.555);
+
+    }
+    /*cep*/
+.cepContainer {
+    grid-column: 2;
+    margin: 20px 0px;
+
+    }
+.cepContainer input[type="text"]{ 
+    padding: 10px;
+    margin: 10px;
+    background-color: rgb(255, 255, 255);
+    outline: none;
+    border: none;
+    font-size: 1.3em;
+    display: block;
+    border: 1px solid black;
+        
+
+    }
+.cepContainer input[type="text"]:hover{
+    transition: 0.4s;
+    padding: 20px;
+    font-size: 1.3em;
+    }
+.containerProductDetail{
+    grid-column: 1;
+    grid-row: 1;
+    }

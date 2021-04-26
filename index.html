@@ -13,54 +13,65 @@
        
         <header class="header">
        
-            <img src="imagens/icons/Sem Título-1.svg" alt="logo_tolcinho" id="logo">
+                 <a href="#"> <img src="imagens/icons/Sem Título-1.svg" alt="logo_tolcinho" id="logo"> </a>
        
-            <div class="icons-bar">
+                <div class="icons-bar">
 
-                <a href="#">
-                    <span class="iconify" data-inline="false" data-icon="mdi-light:cart"></span>
-                </a>
+                        <a href="#">
+                            <span class="iconify" data-inline="false" data-icon="mdi-light:cart"></span>
+                        </a>
 
-                <span class="menu">
+                        <span class="menu">
 
-                <a href="#" onclick="showMenu()">
-                    <span class="iconmenu iconify" data-inline="false" data-icon="mdi-light:menu"></span>
-                </a>
-
-                        <div class="opcaoMenu">
-                            <ul>
-                                <li>
-                                    <a href="login.html">cadastro / login</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </span>
-            </div>
+                                <div class="opcaoMenu">
+                                    <ul>
+                                        <li>
+                                            <a href="login.html">cadastro / login
+                                        </li>
+                                    </ul>
+                                </a>
+                                </div>
+                            </span>
+                </div>
 
         </header>
 
 
         <nav class="search">
-            <form>       
-                 <p>Comprar ou vender </p>
+                <form>       
+                        <p>Comprar ou vender</p>
 
-                <input type="search" placeholder="BUSCAR" id="search-box">
-                <button type="submit" id="search-icon"><span class="iconify" data-inline="false" data-icon="akar-icons:search"></span></button>        
-            
-            </form>
+                        <input type="search" placeholder="BUSCAR" id="search-box">
+                        <button type="submit" id="search-icon"><span class="iconify" data-inline="false" data-icon="akar-icons:search"></span></button>        
+                </form>
         </nav>
 
-        <main class="main" data-anima="3d">
-      
-                
-        
-                
+        <main class="main">
+
+        </main>
+
+
+        <!--aqui vai ser mostrado o item com maior detalhe-->
+        <main class="produtoDetail">
+
+                <div class="cepContainer">
+                        <input type="text" id="cep" maxlength="9" placeholder="cep">
+                        <input type="text" id="rua" placeholder="numero da casa"> 
+                        <input type="text" id="ddd" placeholder="ddd"> 
+                        <input type="text" id="estado" placeholder="uf"> 
+                        <input type="text" id="bairro" placeholder="bairro" > 
+                        <input type="text" id="cidade" placeholder="cidade" >   
+                        <input type="text" id="logradouro" placeholder="logradouro" >   
+                </div>
         </main>
 
         <footer class="footer">
-            
+            <p>nicolas peluso 20/04/2021</p>    
         </footer>
+
     </div>
-<script src="script/script.js"></script>
+
+    <script src="script/script.js"></script>
+
 </body>
 </html>
