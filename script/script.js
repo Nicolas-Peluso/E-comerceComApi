@@ -20,11 +20,103 @@ var logradouro = document.querySelector("#logradouro")
 var cepContainer = document.querySelector(".cepContainer")
 cepContainer.classList.add("remove")
 
+/*variaveis cadastro*/
+var email = document.querySelector(".email")
+var username = document.querySelector(".username")
+var pass = document.querySelector(".pass")
+var firstName = document.querySelector(".firstName")
+var secondName = document.querySelector(".secondName")
+var cepCadastro = document.querySelector(".zipCode")
+var city = document.querySelector(".city")
+var street = document.querySelector(".street")
+var houseNumber = document.querySelector(".HouseNumber")
+var phone = document.querySelector(".numberPhone")
+var button = document.querySelector("#btnCadastro")
+var form = document.querySelector(".form")
+var errorTexto = document.querySelector(".erroSenha")
+
+
+    var text = document.createElement("p") 
+    text.innerHTML = "a senha deve ter no minimo 8 caracteres uma letra e um numero"
+    errorTexto.appendChild(text)
+    text.style.color = "black"
+
+pass.addEventListener("focusout", p =>{
+    verify()
+})
+
+function verify(){
+
+    var validaPass = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/
+
+    if(validaPass.test(pass)){
+        
+        var t = document.createElement("p")
+        t.innerHTML = "tudo certo"
+        t.style.color= "green"
+        errorTexto.appendChild(t)
+
+    }
+
+    else if(validaPass.exec(pass)){
+
+        var p = document.createElement("p")  
+        p.innerHTML = "verifique se a senha foi digitada corretamente"
+        errorTexto.appendChild(p)
+    
+    }
+}
+form.addEventListener("submit", (e) => {
+    e.preventDefault()
+    
+    
+
+
+    fetch("https://fakestoreapi.com/users", {
+        method: "POST",
+        body: JSON.stringify(
+            {
+                email: email,
+                username: username,
+                password: pass,
+                name: {
+                    firstName: firstName,
+                    lastname: secondName
+                },
+                address: {
+                    city, city,
+                    street: street,
+                    number: houseNumber,
+                    cepCadastro: cepCadastro,
+                    geolocation:{
+                        lat:'-37.3159',
+                        long:'81.1496'
+                    },
+                },
+                phone: phone
+            }
+        )
+    })
+    .then(request => {
+        console.log(request)
+        request.json()
+    })
+    .then(json => {
+        console.log(json)
+    })
+
+})
+
+
+
+
+
+
+
+
 function loaderoff(){
     load.classList.remove("loader")
 }
-
-
 function zeraOsCampos(){
     cep.value = ""
     estado.value = ""
@@ -33,6 +125,7 @@ function zeraOsCampos(){
     ddd.value = ""
     bairro.value = ""
 
+
 }
 function adicionaOsCampos(){
     estado.value = "..."
@@ -40,15 +133,17 @@ function adicionaOsCampos(){
     ddd.value = "..."
     bairro.value = "..."
     logradouro.value = "..."
+
 }
 
-cep.addEventListener("focusout", validacao)
+cep.addEventListener("focusout", ex => 
+validacao(cep.value))
 
-function validacao(){
+function validacao(cep){
 
 var valida_cep = /[0-9]{5}-[\d]{3}/
 
-if(valida_cep.test(cep.value)){
+if(valida_cep.test(cep)){
 
     buscaJson()
 
@@ -87,15 +182,17 @@ function buscaJson(){
         })
     .then(function(json){
         console.log(json)
+
         cep.value = json.cep
         estado.value = json.uf
         cidade.value= json.localidade
         ddd.value = json.ddd
         bairro.value = json.bairro
         logradouro.value = json.logradouro
+    
+
 })
 }
-
 
 
 

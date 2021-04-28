@@ -313,9 +313,9 @@ footer{
     }
 .loader {
     display: block;
-    border: 16px solid #a09f9f;
+    border: 10px solid #a09f9f75;
     border-radius: 50%;
-    border-top: 16px solid #3498db;
+    border-top: 10px solid #ffd000;
     width: 120px;
     height: 120px;
     animation: spin 2s linear infinite;
@@ -326,3 +326,30 @@ footer{
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
     }
+
+/*cadastro*/
+
+.containerCadastro input{
+    padding: 10px;
+    margin: 10px;
+    background-color: rgb(255, 255, 255);
+    outline: none;
+    border: none;
+    font-size: 1.3em;
+    display: block;
+    border: 1px solid black;
+}
+.containerCadastro input:hover{
+    transition: 0.4s;
+    padding: 20px;
+    font-size: 1.3em;
+}
+.erroSenha{
+    color: red;
+}
+.rightSenha{
+    color: rgb(51, 255, 0);
+}
+.erroSenha, .rightSenha{
+    margin: 15px;
+}
