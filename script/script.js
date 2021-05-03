@@ -34,46 +34,51 @@ var phone = document.querySelector(".numberPhone")
 var button = document.querySelector("#btnCadastro")
 var form = document.querySelector(".form")
 var errorTexto = document.querySelector(".erroSenha")
+var itemErrorMessage = document.createElement("p")
+var cadastrobotao = document.querySelector(".opcaomenu")
+var cadastrocontainer = document.querySelector(".containerCadastro")
 
+cadastrocontainer.classList.add("remove")
 
-    var text = document.createElement("p") 
-    text.innerHTML = "a senha deve ter no minimo 8 caracteres uma letra e um numero"
-    errorTexto.appendChild(text)
-    text.style.color = "black"
+    cadastrobotao.addEventListener("click", r => {
 
-pass.addEventListener("focusout", p =>{
-    verify()
+    main.innerHTML = ""
+    main.classList.remove("elementsPrincipalMain")
+
+    search.classList.remove("search")
+    search.classList.add("remove")
+
+    cadastrocontainer.classList.remove("remove")
+    cadastrocontainer.classList.add("containerCadastro")
+    
+
 })
 
-function verify(){
+pass.addEventListener("focusout", p =>{
+    verify(pass.value)
+})
 
-    var validaPass = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/
+function verify(password){
 
-    if(validaPass.test(pass)){
-        
-        var t = document.createElement("p")
-        t.innerHTML = "tudo certo"
-        t.style.color= "green"
-        errorTexto.appendChild(t)
+    var validaPass = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/
 
+    if(!validaPass.test(password)){
+        itemErrorMessage.innerHTML = "8 carcteres uma letra um numero e um caracter esspecial @$!%*#?& "
+        itemErrorMessage.style.color= "red"
+        errorTexto.appendChild(itemErrorMessage)
     }
-
-    else if(validaPass.exec(pass)){
-
-        var p = document.createElement("p")  
-        p.innerHTML = "verifique se a senha foi digitada corretamente"
-        errorTexto.appendChild(p)
-    
+    else if(validaPass.test(password) == true){
+        itemErrorMessage.innerHTML = "tudo certo!"
+        itemErrorMessage.style.color= "green"
+        errorTexto.appendChild(itemErrorMessage)
     }
 }
-form.addEventListener("submit", (e) => {
+form.addEventListener("submit", ex => {
     e.preventDefault()
     
-    
-
-
     fetch("https://fakestoreapi.com/users", {
         method: "POST",
+        mode: "no-cors",
         body: JSON.stringify(
             {
                 email: email,
@@ -99,20 +104,20 @@ form.addEventListener("submit", (e) => {
     })
     .then(request => {
         console.log(request)
-        request.json()
+        
+        if(request.status != 200 || request.status != 201){
+            throw Error(request.status)
+        }
+        else{
+            return request.json()
+        }
     })
-    .then(json => {
-        console.log(json)
-    })
+    .then(json => console.log(json))
 
+.catch(erro => {
+    console.log(`algo deu errado por favor tente novament ${erro}`)
 })
-
-
-
-
-
-
-
+})
 
 function loaderoff(){
     load.classList.remove("loader")
@@ -124,8 +129,6 @@ function zeraOsCampos(){
     rua.value = ""
     ddd.value = ""
     bairro.value = ""
-
-
 }
 function adicionaOsCampos(){
     estado.value = "..."
@@ -133,7 +136,6 @@ function adicionaOsCampos(){
     ddd.value = "..."
     bairro.value = "..."
     logradouro.value = "..."
-
 }
 
 cep.addEventListener("focusout", ex => 
@@ -144,12 +146,9 @@ function validacao(cep){
 var valida_cep = /[0-9]{5}-[\d]{3}/
 
 if(valida_cep.test(cep)){
-
     buscaJson()
-
 }
 else{
-
     alert('verifique se voce digitou o cep corrtamente com o traço EX:00000-000 são 8 numeros e um -(apóstrofe)')
     zeraOsCampos()
 }
@@ -160,8 +159,6 @@ function buscaJson(){
 
     adicionaOsCampos()
 
-  
-
     fetch(`https://viacep.com.br/ws/`+cep.value+`/json`)
 
     .then(function (response){
@@ -169,20 +166,14 @@ function buscaJson(){
     if(!response.ok){
 
         throw Error(response.statusText)
-    
 }
-        return response.json()
-
-    })
-
-        .catch(e => {
-            
-            console.log("deu pau", e)
-    
+  return response.json()
+ })
+        .catch(e => {      
+            console.log("algo deu errado com a conexão com o servidor", e)
         })
     .then(function(json){
         console.log(json)
-
         cep.value = json.cep
         estado.value = json.uf
         cidade.value= json.localidade
@@ -194,13 +185,7 @@ function buscaJson(){
 })
 }
 
-
-
-
-
 fetch("https://fakestoreapi.com/products")
-
-
 
 .then(function(response){
     console.log(response)
@@ -234,10 +219,7 @@ fetch("https://fakestoreapi.com/products")
             
             carregaProdutoDetail(key.id)
         })
-
-        
     })
-    
 })
 
 function carregaProdutoDetail(id){
@@ -266,7 +248,6 @@ fetch(`https://fakestoreapi.com/products/`+id+``)
     search.classList.remove("search")
     search.classList.add("remove")
 
-
     var productDetail = document.createElement("div")
     productDetail.innerHTML = `
         
@@ -277,7 +258,6 @@ fetch(`https://fakestoreapi.com/products/`+id+``)
         <button class="btnComprarDetail" id="btnComprar">COMPRAR</button>
 
         ` 
-        
         produtoDetailMain.appendChild(productDetail)
         productDetail.classList.add("containerProductDetail")
 
