@@ -256,7 +256,7 @@ fetch(`https://fakestoreapi.com/products/`+id+``)
         <p class="descricaoDetail">`+json.description+`<p>
         <p class="precoDetail">`+json.price+` R$<p>
         <button class="btnComprarDetail" id="btnComprar">COMPRAR</button>
-
+        
         ` 
         produtoDetailMain.appendChild(productDetail)
         productDetail.classList.add("containerProductDetail")
