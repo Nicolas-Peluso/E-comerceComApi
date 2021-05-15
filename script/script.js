@@ -38,6 +38,15 @@ var itemErrorMessage = document.createElement("p")
 var cadastrobotao = document.querySelector(".opcaomenu")
 var cadastrocontainer = document.querySelector(".containerCadastro")
 
+/* variveis marketing e cookie */
+var conteinerCookie = document.querySelector(".questioncookie")
+var formCookie = document.querySelector(".formCookie")
+var cookie = document.querySelector("#cookie")
+var mark = document.querySelector("#mark")
+var btncookie = document.querySelector(".btnCookie")
+
+
+
 cadastrocontainer.classList.add("remove")
 
     cadastrobotao.addEventListener("click", r => {
@@ -94,8 +103,8 @@ form.addEventListener("submit", ex => {
                     number: houseNumber,
                     cepCadastro: cepCadastro,
                     geolocation:{
-                        lat:'-37.3159',
-                        long:'81.1496'
+                        lat:'-00.0000',
+                        long:'00.0000'
                     },
                 },
                 phone: phone
@@ -206,11 +215,13 @@ fetch("https://fakestoreapi.com/products")
   Array.from(keys).forEach(key => {
         var div = document.createElement('div')   
         div.innerHTML = `
+        
         <img src="`+key.image+`" alt="" class="imagemProduto">
         <p class="tituloProduto">`+key.title+`<p>
         <p class="descricao">`+key.description+`<p>
         <p class="preco">`+key.price+` R$<p>
         <button class="btnComprar" id="btnComprar">COMPRAR</button>
+        
         `   
         loaderoff()
         main.appendChild(div)
@@ -266,3 +277,24 @@ fetch(`https://fakestoreapi.com/products/`+id+``)
 }
 
 
+/*cookie mark*/
+
+btncookie.addEventListener("click", ex => {
+        if(cookie.checked == true){
+            cookiefun()
+        }
+        if(mark.checked == true){
+            markfun()
+        }  
+        conteinerCookie.classList.remove("questioncookie")
+        conteinerCookie.classList.add("remove")
+})
+
+
+function cookiefun(){
+    console.log("ativou cookie")
+}
+
+function markfun(){
+    console.log("ativou mark")
+}
