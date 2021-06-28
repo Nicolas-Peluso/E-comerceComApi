@@ -6,6 +6,9 @@
     font-family: 'titulos';
     src: url('../font/titulos/Pompiere-Regular.ttf') format("truetype");
 }
+.page{
+    display: none;
+}
 body{
     background-image: url(../imagens/back.svg);
     background-repeat: repeat;

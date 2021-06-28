@@ -45,22 +45,40 @@ var cookie = document.querySelector("#cookie")
 var mark = document.querySelector("#mark")
 var btncookie = document.querySelector(".btnCookie")
 
+    crossroads.routed.add(console.log, console); //log all routes
 
+    function parseHash(newHash, oldHash){
+      crossroads.parse(newHash);
+    }
+    hasher.initialized.add(parseHash);
+    hasher.changed.add(parseHash); 
+    hasher.init();
 
-cadastrocontainer.classList.add("remove")
+crossroads.addRoute('cadastro', teste =>{
+    showPage("login")
+});
 
-    cadastrobotao.addEventListener("click", r => {
+function showPage(id){
+    resetpage()
+    var teste = document.getElementById(id)
+    teste.style.display = "block"
+}
+
+function resetpage(){
+    var pages = document.querySelectorAll(".page")
+    var teste = Array.from(pages)
+    console.log(teste)
+    teste.forEach(page => {
+        page.style.display = "none"
+    })
+}
+
+cadastrobotao.addEventListener("click", r => {
 
     main.innerHTML = ""
-    main.classList.remove("elementsPrincipalMain")
 
     search.classList.remove("search")
     search.classList.add("remove")
-
-    cadastrocontainer.classList.remove("remove")
-    cadastrocontainer.classList.add("containerCadastro")
-    
-
 })
 
 pass.addEventListener("focusout", p =>{
@@ -189,8 +207,6 @@ function buscaJson(){
         ddd.value = json.ddd
         bairro.value = json.bairro
         logradouro.value = json.logradouro
-    
-
 })
 }
 
@@ -213,21 +229,24 @@ fetch("https://fakestoreapi.com/products")
 
 .then(function(keys){
   Array.from(keys).forEach(key => {
-        var div = document.createElement('div')   
+        var div = document.createElement('div')    
         div.innerHTML = `
-        
+        <a href="/#/produto">
         <img src="`+key.image+`" alt="" class="imagemProduto">
         <p class="tituloProduto">`+key.title+`<p>
         <p class="descricao">`+key.description+`<p>
         <p class="preco">`+key.price+` R$<p>
         <button class="btnComprar" id="btnComprar">COMPRAR</button>
-        
-        `   
+        </a>
+        ` 
+        crossroads.addRoute(`produto`, teste =>{
+            showPage("produtos")
+        });
+
         loaderoff()
         main.appendChild(div)
         div.classList.add("elementsPrincipalMain")
         div.addEventListener("click", call => {
-            
             carregaProdutoDetail(key.id)
         })
     })
@@ -249,29 +268,23 @@ fetch(`https://fakestoreapi.com/products/`+id+``)
     console.log(statusCode, "conexão instavel ou perda de pacotes tente novamente mais tarde")
 })
 .then(json =>{
-    
-    cepContainer.classList.remove("remove")
-    cepContainer.classList.add("cepContainer")
 
     main.innerHTML = ""
-    main.classList.remove("elementsPrincipalMain")
 
     search.classList.remove("search")
     search.classList.add("remove")
 
     var productDetail = document.createElement("div")
     productDetail.innerHTML = `
-        
+       
         <img src="`+json.image+`" alt="" class="imagemProdutoDetail">
         <p class="tituloDetail">`+json.title+`<p>
         <p class="descricaoDetail">`+json.description+`<p>
         <p class="precoDetail">`+json.price+` R$<p>
         <button class="btnComprarDetail" id="btnComprar">COMPRAR</button>
-        
         ` 
         produtoDetailMain.appendChild(productDetail)
         productDetail.classList.add("containerProductDetail")
-
 })
 
 }

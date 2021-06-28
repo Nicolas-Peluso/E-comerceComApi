@@ -1,0 +1,19 @@
+{
+  "name": "e-comercecomapi",
+  "version": "1.0.0",
+  "description": "ecomerce",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nicolas-beginner/E-comerceComApi.git"
+  },
+  "author": "nicolas",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Nicolas-beginner/E-comerceComApi/issues"
+  },
+  "homepage": "https://github.com/Nicolas-beginner/E-comerceComApi#readme"
+}

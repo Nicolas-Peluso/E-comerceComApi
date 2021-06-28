@@ -1,0 +1,21 @@
+{
+  "name": "e-comercecomapi",
+  "description": "ecomerce",
+  "main": "index.html",
+  "authors": [
+    "nicolas"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/Nicolas-beginner/E-comerceComApi",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "crossroads.js": "^0.12.2",
+    "hasher": "^1.2.0"
+  }
+}

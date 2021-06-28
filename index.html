@@ -27,7 +27,7 @@
                                 <div class="opcaoMenu">
                                     <ul>
                                         <li>
-                                            <a href="#" class="opcaomenu">cadastro / login
+                                            <a href="/#/cadastro" class="opcaomenu">cadastro / login
                                         </li>
                                     </ul>
                                 </a>
@@ -36,7 +36,6 @@
                 </div>
 
         </header>
-
 
         <nav class="search">
                 <form>       
@@ -49,27 +48,26 @@
                 
         </nav>
 
-        <main class="main">
-         
-        </main>
-
+        
+            <main id="home" class="main">
+            
+            </main>
 
         <!--aqui vai ser mostrado o item com maior detalhe-->
-        <main class="produtoDetail">
+            <main id="produtos" class="produtoDetail page">
+                    <div id="cep" class="cepContainer">
+                            <input type="text" id="cep" maxlength="9" placeholder="cep">
+                            <input type="text" id="rua" placeholder="numero da casa">
+                            <input type="text" id="ddd" placeholder="ddd">
+                            <input type="text" id="estado" placeholder="uf">
+                            <input type="text" id="bairro" placeholder="bairro" >
+                            <input type="text" id="cidade" placeholder="cidade" >
+                            <input type="text" id="logradouro" placeholder="logradouro" >
+                    </div>
+            </main>
 
-                <div class="cepContainer">
-                        <input type="text" id="cep" maxlength="9" placeholder="cep">
-                        <input type="text" id="rua" placeholder="numero da casa"> 
-                        <input type="text" id="ddd" placeholder="ddd"> 
-                        <input type="text" id="estado" placeholder="uf"> 
-                        <input type="text" id="bairro" placeholder="bairro" > 
-                        <input type="text" id="cidade" placeholder="cidade" >   
-                        <input type="text" id="logradouro" placeholder="logradouro" >   
-                </div>
-        </main>
-
-        <main class="login">
-        <div class="containerCadastro">
+        <main  class="login">
+        <div id="login" class="containerCadastro page">
             <form class="form">
 
                 <input type="email" placeholder="Email" class="email">
@@ -116,9 +114,12 @@
         </form>
 
         <button class="btnCookie">concluido</button>
+        <button><a href="">click</a></button>
 
     </div>
+    <script src="bower_components/js-signals/dist/signals.min.js"></script>
+    <script src="bower_components/hasher/dist/js/hasher.min.js"></script>
+    <script src="bower_components/crossroads.js/dist/crossroads.min.js"></script>
     <script src="script/script.js"></script>
-
 </body>
 </html>
