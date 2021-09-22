@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <link rel="stylesheet" href="style/style.css">
     <meta charset="UTF-8">
@@ -8,104 +9,109 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>tolcinh-o seu site de compras</title>
 </head>
+
 <body>
-   
+
     <div class="container">
-       
+
         <header class="header">
-       
-                <img src="imagens/icons/Sem Título-1.svg" alt="logo_tolcinho" id="logo"> 
-       
-                <div class="icons-bar">
 
-                        <a href="#">
-                            <span class="iconify" data-inline="false" data-icon="mdi-light:cart"></span>
+            <img src="imagens/icons/Sem Título-1.svg" alt="logo_tolcinho" id="logo">
+
+            <div class="icons-bar">
+
+                <a href="#">
+                    <span class="iconify" data-inline="false" data-icon="mdi-light:cart"></span>
+                </a>
+
+                <span class="menu">
+
+                    <div class="opcaoMenu">
+                        <ul>
+                            <li>
+                                <a href="#" class="opcaomenu">cadastro / login
+                            </li>
+                        </ul>
                         </a>
-
-                        <span class="menu">
-
-                                <div class="opcaoMenu">
-                                    <ul>
-                                        <li>
-                                            <a href="/#/cadastro" class="opcaomenu">cadastro / login
-                                        </li>
-                                    </ul>
-                                </a>
-                                </div>
-                            </span>
-                </div>
+                    </div>
+                </span>
+            </div>
 
         </header>
 
-        <nav class="search">
-                <form>       
-                        <p>Comprar ou vender</p>
 
-                        <input type="search" placeholder="BUSCAR" id="search-box">
-                        <button type="submit" id="search-icon"><span class="iconify" data-inline="false" data-icon="akar-icons:search"></span></button>        
-               <div class="loader"></div>
-             </form>
-                
+        <nav class="search">
+            <form>
+                <p>Comprar ou vender</p>
+
+                <input type="search" placeholder="BUSCAR" id="search-box">
+                <button type="submit" id="search-icon"><span class="iconify" data-inline="false"
+                        data-icon="akar-icons:search"></span></button>
+                <div class="loader"></div>
+            </form>
+
         </nav>
 
-        
-            <main id="home" class="main">
-            
-            </main>
+        <main class="main">
+
+        </main>
+
 
         <!--aqui vai ser mostrado o item com maior detalhe-->
-            <main id="produtos" class="produtoDetail page">
-                    <div id="cep" class="cepContainer">
-                            <input type="text" id="cep" maxlength="9" placeholder="cep">
-                            <input type="text" id="rua" placeholder="numero da casa">
-                            <input type="text" id="ddd" placeholder="ddd">
-                            <input type="text" id="estado" placeholder="uf">
-                            <input type="text" id="bairro" placeholder="bairro" >
-                            <input type="text" id="cidade" placeholder="cidade" >
-                            <input type="text" id="logradouro" placeholder="logradouro" >
-                    </div>
-            </main>
+        <main class="produtoDetail">
 
-        <main  class="login">
-        <div id="login" class="containerCadastro page">
-            <form class="form">
-
-                <input type="email" placeholder="Email" class="email">
-
-                <input type="text" placeholder="Nome de Usuario" class="username">
-
-                <input type="password" placeholder="senha" class="pass">
-                <p class="erroSenha"></p>
-                <input type="text" placeholder="primeiro nome" class="firstName">
-
-                <input type="text" placeholder="segundo nome" class="secondName ">
-                
-                <input type="text" placeholder="cep" class="zipCode">
-
-                <input type="text" placeholder="cidade" class="city">
-
-                <input type="text" placeholder="Nome da Rua" class="street">
-
-                <input type="number" placeholder="numero da casa" class="HouseNumber">
-
-                <input type="number" placeholder="telefone" class="numberPhone">
-
-                <button type="submit" class="btnComprarDetail" id="btnCadastro">concluido</button>
-
-            </form>    
-        </div>
+            <div class="cepContainer">
+                <input type="text" id="cep" maxlength="9" placeholder="cep">
+                <input type="text" id="rua" placeholder="numero da casa">
+                <input type="text" id="ddd" placeholder="ddd">
+                <input type="text" id="estado" placeholder="uf">
+                <input type="text" id="bairro" placeholder="bairro">
+                <input type="text" id="cidade" placeholder="cidade">
+                <input type="text" id="logradouro" placeholder="logradouro">
+            </div>
         </main>
-        
+
+        <main class="login">
+            <div class="containerCadastro">
+                <form class="form">
+
+                    <input type="email" placeholder="Email" class="email">
+
+                    <input type="text" placeholder="Nome de Usuario" class="username">
+
+                    <input type="password" placeholder="senha" class="pass">
+                    <p class="erroSenha"></p>
+                    <input type="text" placeholder="primeiro nome" class="firstName">
+
+                    <input type="text" placeholder="segundo nome" class="secondName ">
+
+                    <input type="text" placeholder="cep" class="zipCode">
+
+                    <input type="text" placeholder="cidade" class="city">
+
+                    <input type="text" placeholder="Nome da Rua" class="street">
+
+                    <input type="number" placeholder="numero da casa" class="HouseNumber">
+
+                    <input type="number" placeholder="telefone" class="numberPhone">
+
+                    <button type="submit" class="btnComprarDetail" id="btnCadastro">concluido</button>
+
+                </form>
+            </div>
+        </main>
+
         <footer class="footer">
-            <p>nicolas peluso 20/04/2021</p>    
+            <p>nicolas peluso 20/04/2021</p>
         </footer>
 
     </div>
-    <div class="questioncookie">
-        <p>esse site usa cookies para melhorar a sua navegação e <br> marketing para fins de anuncios eu permito a ultilização de:</p>
+    <div class="questioncookie remove">
+        <p>esse site usa cookies para melhorar a sua navegação e <br> marketing para fins de anuncios eu permito a
+            ultilização de:</p>
         <a href="https://en.wikipedia.org/wiki/Cookie" class="whatis" target="_blank">o que é isso?</a>
         <form class="formCookie">
-            
+
             <input type="checkbox" id="cookie" checked>
             <label for="cookie">Cookie</label>
             <input type="checkbox" id="mark" checked>
@@ -114,12 +120,10 @@
         </form>
 
         <button class="btnCookie">concluido</button>
-        <button><a href="">click</a></button>
 
     </div>
-    <script src="bower_components/js-signals/dist/signals.min.js"></script>
-    <script src="bower_components/hasher/dist/js/hasher.min.js"></script>
-    <script src="bower_components/crossroads.js/dist/crossroads.min.js"></script>
-    <script src="script/script.js"></script>
+    <script type="module" src="script/script.js"></script>
+
 </body>
+
 </html>
